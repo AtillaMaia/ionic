@@ -14,3 +14,29 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+.center{
+    text-align: center;
+  }
+  
+  .button{
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    background-color: color($colors, SCyellow);
+    color: color($colors, SCdarkgrey);
+  }
+  
+  .button:active{
+    background-color: color($colors, SCdarkyellow);
+  }
+  
+  .button:focus{
+    background-color: color($colors, SCdarkyellow);
+  }
+  
+  .button:visited{
+    background-color: color($colors, SCdarkyellow);
+  }
+  
+  
