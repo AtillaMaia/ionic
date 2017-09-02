@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HomePage } from "../home/home";
 import { ForgotPasswordPage } from "../forgot-password/forgot-password";
 import { SignupPage } from "../signup/signup";
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
+
+
 
 /**
  * Generated class for the SigninPage page.
@@ -18,15 +22,13 @@ import { SignupPage } from "../signup/signup";
 export class SigninPage {
   email:string = "";
   password:string = "";
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private api: AuthenticationProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SigninPage');
-  }
-  signin(){
-    console.log(this.email);
-    console.log(this.password);
+   signin(){
+    this.api.login(this.email.trim().toLowerCase(), this.password).then(data => {
+      this.navCtrl.setRoot(HomePage, {}, {animate:true, direction:'forward'});
+    });
   }
 
   signup(){
